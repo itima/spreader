@@ -7,4 +7,3 @@ test:
 production:
   app_id: 331666496857245
   secret_key: 458b82e56419d6fa7a6dcbf463017e30
-	

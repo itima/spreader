@@ -2,3 +2,9 @@
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+
+.accounts 
+  %h2 Available Accounts
+  - @results.each do |result|
+    .account
+      %p= result['id']
