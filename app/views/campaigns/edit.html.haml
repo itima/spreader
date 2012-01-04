@@ -1,7 +1,2 @@
-%h1 Editing campaign
-
-= render 'form'
-
-= link_to 'Show', @campaign
-\|
-= link_to 'Back', campaigns_path
+= bootstrap_form_for :campaign, :url => campaigns_path, :html => { :class => :form } do |f|
+  = render :partial => "form", :locals => {:f => f}

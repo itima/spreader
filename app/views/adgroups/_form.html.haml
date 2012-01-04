@@ -1,55 +1,38 @@
-= form_for @adgroup do |f|
-  -if @adgroup.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@adgroup.errors.count, "error")} prohibited this adgroup from being saved:"
-      %ul
-        - @adgroup.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :advert_id
-    = f.number_field :advert_id
-  .field
-    = f.label :ad_id
-    = f.number_field :ad_id
-  .field
-    = f.label :campaign_id
-    = f.number_field :campaign_id
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :ad_status
-    = f.number_field :ad_status
-  .field
-    = f.label :adgroup_status
-    = f.number_field :adgroup_status
-  .field
-    = f.label :bid_type
-    = f.number_field :bid_type
-  .field
-    = f.label :max_bid
-    = f.number_field :max_bid
-  .field
-    = f.label :bid_info
-    = f.text_field :bid_info
-  .field
-    = f.label :account_id
-    = f.number_field :account_id
-  .field
-    = f.label :uid
-    = f.text_field :uid
-  .field
-    = f.label :creative_ids
-    = f.text_field :creative_ids
-  .field
-    = f.label :targeting
-    = f.text_field :targeting
-  .field
-    = f.label :start_time
-    = f.datetime_select :start_time
-  .field
-    = f.label :end_time
-    = f.datetime_select :end_time
-  .actions
-    = f.submit 'Save'
+= f.label :_type, t("activerecord.attributes.adgroup._type", :default => " type"), :class => :label
+= f.text_field :_type, :class => 'text_field'
+= f.label :_id, t("activerecord.attributes.adgroup._id", :default => ""), :class => :label
+= f.text_field :_id, :class => 'text_field'
+= f.label :advert_id, t("activerecord.attributes.adgroup.advert_id", :default => "Advert"), :class => :label
+= f.text_field :advert_id, :class => 'text_field'
+= f.label :ad_id, t("activerecord.attributes.adgroup.ad_id", :default => "Ad"), :class => :label
+= f.text_field :ad_id, :class => 'text_field'
+= f.label :campaign_id, t("activerecord.attributes.adgroup.campaign_id", :default => "Campaign"), :class => :label
+= f.text_field :campaign_id, :class => 'text_field'
+= f.label :name, t("activerecord.attributes.adgroup.name", :default => "Name"), :class => :label
+= f.text_field :name, :class => 'text_field'
+= f.label :ad_status, t("activerecord.attributes.adgroup.ad_status", :default => "Ad status"), :class => :label
+= f.text_field :ad_status, :class => 'text_field'
+= f.label :adgroup_status, t("activerecord.attributes.adgroup.adgroup_status", :default => "Adgroup status"), :class => :label
+= f.text_field :adgroup_status, :class => 'text_field'
+= f.label :bid_type, t("activerecord.attributes.adgroup.bid_type", :default => "Bid type"), :class => :label
+= f.text_field :bid_type, :class => 'text_field'
+= f.label :max_bid, t("activerecord.attributes.adgroup.max_bid", :default => "Max bid"), :class => :label
+= f.text_field :max_bid, :class => 'text_field'
+= f.label :bid_info, t("activerecord.attributes.adgroup.bid_info", :default => "Bid info"), :class => :label
+= f.text_field :bid_info, :class => 'text_field'
+= f.label :account_id, t("activerecord.attributes.adgroup.account_id", :default => "Account"), :class => :label
+= f.text_field :account_id, :class => 'text_field'
+= f.label :uid, t("activerecord.attributes.adgroup.uid", :default => "Uid"), :class => :label
+= f.text_field :uid, :class => 'text_field'
+= f.label :creative_ids, t("activerecord.attributes.adgroup.creative_ids", :default => "Creative ids"), :class => :label
+= f.text_field :creative_ids, :class => 'text_field'
+= f.label :targeting, t("activerecord.attributes.adgroup.targeting", :default => "Targeting"), :class => :label
+= f.text_field :targeting, :class => 'text_field'
+= f.label :start_time, t("activerecord.attributes.adgroup.start_time", :default => "Start time"), :class => :label
+= f.text_field :start_time, :class => 'text_field'
+= f.label :end_time, t("activerecord.attributes.adgroup.end_time", :default => "End time"), :class => :label
+= f.text_field :end_time, :class => 'text_field'
+.actions
+  %button.btn.primary{:type => "submit"} Save
+  or
+  \#{link_to "Cancel", adgroups_path}

@@ -1,5 +1,2 @@
-%h1 New creative
-
-= render 'form'
-
-= link_to 'Back', creatives_path
+= bootstrap_form_for :creative, :url => creatives_path, :html => { :class => :form } do |f|
+  = render :partial => "form", :locals => {:f => f}

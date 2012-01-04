@@ -1,60 +1,81 @@
-%p#notice= notice
-
-%p
-  %b Id:
-  = @account.id
-%p
-  %b Account:
-  = @account.account_id
-%p
-  %b Name:
-  = @account.name
-%p
-  %b Account status:
-  = @account.account_status
-%p
-  %b Currency:
-  = @account.currency
-%p
-  %b Timezone:
-  = @account.timezone_id
-%p
-  %b Timezone name:
-  = @account.timezone_name
-%p
-  %b Is personal:
-  = @account.is_personal
-%p
-  %b Business name:
-  = @account.business_name
-%p
-  %b Business street:
-  = @account.business_street
-%p
-  %b Business street2:
-  = @account.business_street2
-%p
-  %b Business city:
-  = @account.business_city
-%p
-  %b Business state:
-  = @account.business_state
-%p
-  %b Business zip:
-  = @account.business_zip
-%p
-  %b Business country code:
-  = @account.business_country_code
-%p
-  %b Vat status:
-  = @account.vat_status
-%p
-  %b Daily spend limit:
-  = @account.daily_spend_limit
-%p
-  %b Balance:
-  = @account.balance
-
-= link_to 'Edit', edit_account_path(@account)
-\|
-= link_to 'Back', accounts_path
+%label.label
+  = t("activerecord.attributes.account._type", :default => t("activerecord.labels._type", :default => " type"))
+  \:
+%p= @account._type
+%label.label
+  = t("activerecord.attributes.account._id", :default => t("activerecord.labels._id", :default => ""))
+  \:
+%p= @account._id
+%label.label
+  = t("activerecord.attributes.account.uid", :default => t("activerecord.labels.uid", :default => "Uid"))
+  \:
+%p= @account.uid
+%label.label
+  = t("activerecord.attributes.account.account_id", :default => t("activerecord.labels.account_id", :default => "Account"))
+  \:
+%p= @account.account_id
+%label.label
+  = t("activerecord.attributes.account.name", :default => t("activerecord.labels.name", :default => "Name"))
+  \:
+%p= @account.name
+%label.label
+  = t("activerecord.attributes.account.account_status", :default => t("activerecord.labels.account_status", :default => "Account status"))
+  \:
+%p= @account.account_status
+%label.label
+  = t("activerecord.attributes.account.currency", :default => t("activerecord.labels.currency", :default => "Currency"))
+  \:
+%p= @account.currency
+%label.label
+  = t("activerecord.attributes.account.timezone_id", :default => t("activerecord.labels.timezone_id", :default => "Timezone"))
+  \:
+%p= @account.timezone_id
+%label.label
+  = t("activerecord.attributes.account.timezone_name", :default => t("activerecord.labels.timezone_name", :default => "Timezone name"))
+  \:
+%p= @account.timezone_name
+%label.label
+  = t("activerecord.attributes.account.is_personal", :default => t("activerecord.labels.is_personal", :default => "Is personal"))
+  \:
+%p= @account.is_personal
+%label.label
+  = t("activerecord.attributes.account.business_name", :default => t("activerecord.labels.business_name", :default => "Business name"))
+  \:
+%p= @account.business_name
+%label.label
+  = t("activerecord.attributes.account.business_street", :default => t("activerecord.labels.business_street", :default => "Business street"))
+  \:
+%p= @account.business_street
+%label.label
+  = t("activerecord.attributes.account.business_street2", :default => t("activerecord.labels.business_street2", :default => "Business street2"))
+  \:
+%p= @account.business_street2
+%label.label
+  = t("activerecord.attributes.account.business_city", :default => t("activerecord.labels.business_city", :default => "Business city"))
+  \:
+%p= @account.business_city
+%label.label
+  = t("activerecord.attributes.account.business_state", :default => t("activerecord.labels.business_state", :default => "Business state"))
+  \:
+%p= @account.business_state
+%label.label
+  = t("activerecord.attributes.account.business_zip", :default => t("activerecord.labels.business_zip", :default => "Business zip"))
+  \:
+%p= @account.business_zip
+%label.label
+  = t("activerecord.attributes.account.business_country_code", :default => t("activerecord.labels.business_country_code", :default => "Business country code"))
+  \:
+%p= @account.business_country_code
+%label.label
+  = t("activerecord.attributes.account.vat_status", :default => t("activerecord.labels.vat_status", :default => "Vat status"))
+  \:
+%p= @account.vat_status
+%label.label
+  = t("activerecord.attributes.account.daily_spend_limit", :default => t("activerecord.labels.daily_spend_limit", :default => "Daily spend limit"))
+  \:
+%p= @account.daily_spend_limit
+%label.label
+  = t("activerecord.attributes.account.balance", :default => t("activerecord.labels.balance", :default => "Balance"))
+  \:
+%p= @account.balance
+= link_to "Back", accounts_path

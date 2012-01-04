@@ -1,5 +1,2 @@
-%h1 New adgroup
-
-= render 'form'
-
-= link_to 'Back', adgroups_path
+= bootstrap_form_for :adgroup, :url => adgroups_path, :html => { :class => :form } do |f|
+  = render :partial => "form", :locals => {:f => f}

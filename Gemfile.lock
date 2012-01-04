@@ -110,6 +110,7 @@ GEM
       railties (~> 3.0)
     hashie (1.2.0)
     hike (1.2.1)
+    hpricot (0.8.5)
     i18n (0.6.0)
     jquery-rails (1.0.19)
       railties (~> 3.0)
@@ -201,6 +202,8 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (= 2.8.0.rc2)
+    ruby_parser (2.3.1)
+      sexp_processor (~> 3.0)
     rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.1.5)
@@ -213,6 +216,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    sexp_processor (3.0.9)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -260,6 +264,7 @@ DEPENDENCIES
   guard-rspec (>= 0.4.3)
   haml (>= 3.1.2)
   haml-rails (>= 0.3.4)
+  hpricot
   jquery-rails
   koala
   launchy (>= 2.0.5)
@@ -271,6 +276,7 @@ DEPENDENCIES
   rails-footnotes (>= 3.7)
   rb-fsevent
   rspec-rails (>= 2.8.0.rc1)
+  ruby_parser
   sass-rails (~> 3.1.5)
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

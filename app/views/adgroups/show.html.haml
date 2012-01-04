@@ -1,51 +1,69 @@
-%p#notice= notice
-
-%p
-  %b Advert:
-  = @adgroup.advert_id
-%p
-  %b Ad:
-  = @adgroup.ad_id
-%p
-  %b Campaign:
-  = @adgroup.campaign_id
-%p
-  %b Name:
-  = @adgroup.name
-%p
-  %b Ad status:
-  = @adgroup.ad_status
-%p
-  %b Adgroup status:
-  = @adgroup.adgroup_status
-%p
-  %b Bid type:
-  = @adgroup.bid_type
-%p
-  %b Max bid:
-  = @adgroup.max_bid
-%p
-  %b Bid info:
-  = @adgroup.bid_info
-%p
-  %b Account:
-  = @adgroup.account_id
-%p
-  %b Uid:
-  = @adgroup.uid
-%p
-  %b Creative ids:
-  = @adgroup.creative_ids
-%p
-  %b Targeting:
-  = @adgroup.targeting
-%p
-  %b Start time:
-  = @adgroup.start_time
-%p
-  %b End time:
-  = @adgroup.end_time
-
-= link_to 'Edit', edit_adgroup_path(@adgroup)
-\|
-= link_to 'Back', adgroups_path
+%label.label
+  = t("activerecord.attributes.adgroup._type", :default => t("activerecord.labels._type", :default => " type"))
+  \:
+%p= @adgroup._type
+%label.label
+  = t("activerecord.attributes.adgroup._id", :default => t("activerecord.labels._id", :default => ""))
+  \:
+%p= @adgroup._id
+%label.label
+  = t("activerecord.attributes.adgroup.advert_id", :default => t("activerecord.labels.advert_id", :default => "Advert"))
+  \:
+%p= @adgroup.advert_id
+%label.label
+  = t("activerecord.attributes.adgroup.ad_id", :default => t("activerecord.labels.ad_id", :default => "Ad"))
+  \:
+%p= @adgroup.ad_id
+%label.label
+  = t("activerecord.attributes.adgroup.campaign_id", :default => t("activerecord.labels.campaign_id", :default => "Campaign"))
+  \:
+%p= @adgroup.campaign_id
+%label.label
+  = t("activerecord.attributes.adgroup.name", :default => t("activerecord.labels.name", :default => "Name"))
+  \:
+%p= @adgroup.name
+%label.label
+  = t("activerecord.attributes.adgroup.ad_status", :default => t("activerecord.labels.ad_status", :default => "Ad status"))
+  \:
+%p= @adgroup.ad_status
+%label.label
+  = t("activerecord.attributes.adgroup.adgroup_status", :default => t("activerecord.labels.adgroup_status", :default => "Adgroup status"))
+  \:
+%p= @adgroup.adgroup_status
+%label.label
+  = t("activerecord.attributes.adgroup.bid_type", :default => t("activerecord.labels.bid_type", :default => "Bid type"))
+  \:
+%p= @adgroup.bid_type
+%label.label
+  = t("activerecord.attributes.adgroup.max_bid", :default => t("activerecord.labels.max_bid", :default => "Max bid"))
+  \:
+%p= @adgroup.max_bid
+%label.label
+  = t("activerecord.attributes.adgroup.bid_info", :default => t("activerecord.labels.bid_info", :default => "Bid info"))
+  \:
+%p= @adgroup.bid_info
+%label.label
+  = t("activerecord.attributes.adgroup.account_id", :default => t("activerecord.labels.account_id", :default => "Account"))
+  \:
+%p= @adgroup.account_id
+%label.label
+  = t("activerecord.attributes.adgroup.uid", :default => t("activerecord.labels.uid", :default => "Uid"))
+  \:
+%p= @adgroup.uid
+%label.label
+  = t("activerecord.attributes.adgroup.creative_ids", :default => t("activerecord.labels.creative_ids", :default => "Creative ids"))
+  \:
+%p= @adgroup.creative_ids
+%label.label
+  = t("activerecord.attributes.adgroup.targeting", :default => t("activerecord.labels.targeting", :default => "Targeting"))
+  \:
+%p= @adgroup.targeting
+%label.label
+  = t("activerecord.attributes.adgroup.start_time", :default => t("activerecord.labels.start_time", :default => "Start time"))
+  \:
+%p= @adgroup.start_time
+%label.label
+  = t("activerecord.attributes.adgroup.end_time", :default => t("activerecord.labels.end_time", :default => "End time"))
+  \:
+%p= @adgroup.end_time
+= link_to "Back", adgroups_path

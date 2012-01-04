@@ -1,33 +1,45 @@
-%p#notice= notice
-
-%p
-  %b Account:
-  = @campaign.account_id
-%p
-  %b Campaign:
-  = @campaign.campaign_id
-%p
-  %b Name:
-  = @campaign.name
-%p
-  %b Daily budget:
-  = @campaign.daily_budget
-%p
-  %b Campaign status:
-  = @campaign.campaign_status
-%p
-  %b Daily imps:
-  = @campaign.daily_imps
-%p
-  %b Uid:
-  = @campaign.uid
-%p
-  %b Start time:
-  = @campaign.start_time
-%p
-  %b End time:
-  = @campaign.end_time
-
-= link_to 'Edit', edit_campaign_path(@campaign)
-\|
-= link_to 'Back', campaigns_path
+%label.label
+  = t("activerecord.attributes.campaign._type", :default => t("activerecord.labels._type", :default => " type"))
+  \:
+%p= @campaign._type
+%label.label
+  = t("activerecord.attributes.campaign._id", :default => t("activerecord.labels._id", :default => ""))
+  \:
+%p= @campaign._id
+%label.label
+  = t("activerecord.attributes.campaign.account_id", :default => t("activerecord.labels.account_id", :default => "Account"))
+  \:
+%p= @campaign.account_id
+%label.label
+  = t("activerecord.attributes.campaign.campaign_id", :default => t("activerecord.labels.campaign_id", :default => "Campaign"))
+  \:
+%p= @campaign.campaign_id
+%label.label
+  = t("activerecord.attributes.campaign.name", :default => t("activerecord.labels.name", :default => "Name"))
+  \:
+%p= @campaign.name
+%label.label
+  = t("activerecord.attributes.campaign.daily_budget", :default => t("activerecord.labels.daily_budget", :default => "Daily budget"))
+  \:
+%p= @campaign.daily_budget
+%label.label
+  = t("activerecord.attributes.campaign.campaign_status", :default => t("activerecord.labels.campaign_status", :default => "Campaign status"))
+  \:
+%p= @campaign.campaign_status
+%label.label
+  = t("activerecord.attributes.campaign.daily_imps", :default => t("activerecord.labels.daily_imps", :default => "Daily imps"))
+  \:
+%p= @campaign.daily_imps
+%label.label
+  = t("activerecord.attributes.campaign.uid", :default => t("activerecord.labels.uid", :default => "Uid"))
+  \:
+%p= @campaign.uid
+%label.label
+  = t("activerecord.attributes.campaign.start_time", :default => t("activerecord.labels.start_time", :default => "Start time"))
+  \:
+%p= @campaign.start_time
+%label.label
+  = t("activerecord.attributes.campaign.end_time", :default => t("activerecord.labels.end_time", :default => "End time"))
+  \:
+%p= @campaign.end_time
+= link_to "Back", campaigns_path

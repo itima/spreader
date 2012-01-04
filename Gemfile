@@ -29,6 +29,9 @@ gem "omniauth-facebook"
 gem 'koala'
 gem "twitter-bootstrap-rails"
 
+gem 'hpricot'
+gem 'ruby_parser'
+
 group :development do
   gem "haml-rails", ">= 0.3.4"
   

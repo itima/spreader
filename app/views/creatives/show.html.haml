@@ -1,45 +1,61 @@
-%p#notice= notice
-
-%p
-  %b Creative:
-  = @creative.creative_id
-%p
-  %b Type:
-  = @creative.type
-%p
-  %b Title:
-  = @creative.title
-%p
-  %b Body:
-  = @creative.body
-%p
-  %b Image hash:
-  = @creative.image_hash
-%p
-  %b Link url:
-  = @creative.link_url
-%p
-  %b Object:
-  = @creative.object_id
-%p
-  %b Name:
-  = @creative.name
-%p
-  %b Run status:
-  = @creative.run_status
-%p
-  %b Preview url:
-  = @creative.preview_url
-%p
-  %b Count current adgroups:
-  = @creative.count_current_adgroups
-%p
-  %b Uid:
-  = @creative.uid
-%p
-  %b Image url:
-  = @creative.image_url
-
-= link_to 'Edit', edit_creative_path(@creative)
-\|
-= link_to 'Back', creatives_path
+%label.label
+  = t("activerecord.attributes.creative._type", :default => t("activerecord.labels._type", :default => " type"))
+  \:
+%p= @creative._type
+%label.label
+  = t("activerecord.attributes.creative._id", :default => t("activerecord.labels._id", :default => ""))
+  \:
+%p= @creative._id
+%label.label
+  = t("activerecord.attributes.creative.creative_id", :default => t("activerecord.labels.creative_id", :default => "Creative"))
+  \:
+%p= @creative.creative_id
+%label.label
+  = t("activerecord.attributes.creative.type", :default => t("activerecord.labels.type", :default => "Type"))
+  \:
+%p= @creative.type
+%label.label
+  = t("activerecord.attributes.creative.title", :default => t("activerecord.labels.title", :default => "Title"))
+  \:
+%p= @creative.title
+%label.label
+  = t("activerecord.attributes.creative.body", :default => t("activerecord.labels.body", :default => "Body"))
+  \:
+%p= @creative.body
+%label.label
+  = t("activerecord.attributes.creative.image_hash", :default => t("activerecord.labels.image_hash", :default => "Image hash"))
+  \:
+%p= @creative.image_hash
+%label.label
+  = t("activerecord.attributes.creative.link_url", :default => t("activerecord.labels.link_url", :default => "Link url"))
+  \:
+%p= @creative.link_url
+%label.label
+  = t("activerecord.attributes.creative.object_id", :default => t("activerecord.labels.object_id", :default => "Object"))
+  \:
+%p= @creative.object_id
+%label.label
+  = t("activerecord.attributes.creative.name", :default => t("activerecord.labels.name", :default => "Name"))
+  \:
+%p= @creative.name
+%label.label
+  = t("activerecord.attributes.creative.run_status", :default => t("activerecord.labels.run_status", :default => "Run status"))
+  \:
+%p= @creative.run_status
+%label.label
+  = t("activerecord.attributes.creative.preview_url", :default => t("activerecord.labels.preview_url", :default => "Preview url"))
+  \:
+%p= @creative.preview_url
+%label.label
+  = t("activerecord.attributes.creative.count_current_adgroups", :default => t("activerecord.labels.count_current_adgroups", :default => "Count current adgroups"))
+  \:
+%p= @creative.count_current_adgroups
+%label.label
+  = t("activerecord.attributes.creative.uid", :default => t("activerecord.labels.uid", :default => "Uid"))
+  \:
+%p= @creative.uid
+%label.label
+  = t("activerecord.attributes.creative.image_url", :default => t("activerecord.labels.image_url", :default => "Image url"))
+  \:
+%p= @creative.image_url
+= link_to "Back", creatives_path
