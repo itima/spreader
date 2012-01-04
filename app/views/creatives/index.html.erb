@@ -1,0 +1,29 @@
+<table class="zebra-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.creative._type", :default => t("activerecord.labels._type", :default => "_type")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @creatives.each do |creative| -%>
+   <tr>
+    <td><%= creative.id %></td>
+        <td><%= link_to creative._type, creative_path(creative) %>
+    </td>
+        <td><%= creative.created_at %></td>
+    <td>
+      <%= link_to "Show", creative_path(creative) %>
+      <%= link_to "Edit", edit_creative_path(creative) %>
+      <%= link_to "Destroy", creative_path(creative), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_creative_path, :class => 'btn primary' %>

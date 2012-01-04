@@ -1,0 +1,49 @@
+
+    <%= f.label :_type, t("activerecord.attributes.creative._type", :default => " type"), :class => :label %>
+    <%= f.text_field :_type, :class => 'text_field' %>
+
+    <%= f.label :_id, t("activerecord.attributes.creative._id", :default => ""), :class => :label %>
+    <%= f.text_field :_id, :class => 'text_field' %>
+
+    <%= f.label :creative_id, t("activerecord.attributes.creative.creative_id", :default => "Creative"), :class => :label %>
+    <%= f.text_field :creative_id, :class => 'text_field' %>
+
+    <%= f.label :type, t("activerecord.attributes.creative.type", :default => "Type"), :class => :label %>
+    <%= f.text_field :type, :class => 'text_field' %>
+
+    <%= f.label :title, t("activerecord.attributes.creative.title", :default => "Title"), :class => :label %>
+    <%= f.text_field :title, :class => 'text_field' %>
+
+    <%= f.label :body, t("activerecord.attributes.creative.body", :default => "Body"), :class => :label %>
+    <%= f.text_field :body, :class => 'text_field' %>
+
+    <%= f.label :image_hash, t("activerecord.attributes.creative.image_hash", :default => "Image hash"), :class => :label %>
+    <%= f.text_field :image_hash, :class => 'text_field' %>
+
+    <%= f.label :link_url, t("activerecord.attributes.creative.link_url", :default => "Link url"), :class => :label %>
+    <%= f.text_field :link_url, :class => 'text_field' %>
+
+    <%= f.label :object_id, t("activerecord.attributes.creative.object_id", :default => "Object"), :class => :label %>
+    <%= f.text_field :object_id, :class => 'text_field' %>
+
+    <%= f.label :name, t("activerecord.attributes.creative.name", :default => "Name"), :class => :label %>
+    <%= f.text_field :name, :class => 'text_field' %>
+
+    <%= f.label :run_status, t("activerecord.attributes.creative.run_status", :default => "Run status"), :class => :label %>
+    <%= f.text_field :run_status, :class => 'text_field' %>
+
+    <%= f.label :preview_url, t("activerecord.attributes.creative.preview_url", :default => "Preview url"), :class => :label %>
+    <%= f.text_field :preview_url, :class => 'text_field' %>
+
+    <%= f.label :count_current_adgroups, t("activerecord.attributes.creative.count_current_adgroups", :default => "Count current adgroups"), :class => :label %>
+    <%= f.text_field :count_current_adgroups, :class => 'text_field' %>
+
+    <%= f.label :uid, t("activerecord.attributes.creative.uid", :default => "Uid"), :class => :label %>
+    <%= f.text_field :uid, :class => 'text_field' %>
+
+    <%= f.label :image_url, t("activerecord.attributes.creative.image_url", :default => "Image url"), :class => :label %>
+    <%= f.text_field :image_url, :class => 'text_field' %>
+<div class="actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", creatives_path %>
+</div>

@@ -13,11 +13,12 @@
         <h3><%= link_to "Spreader", "/" %></h3>
         <ul class="nav">
            <li class="<%= controller.controller_path == 'accounts' ? 'active' : '' %>"><a href="<%= accounts_path %>">Accounts</a></li>
-		   <li class="<%= controller.controller_path == 'campaigns' ? 'active' : '' %>"><a href="<%= campaigns_path %>">Campaigns</a></li>		   
+		   <li class="<%= controller.controller_path == 'campaigns' ? 'active' : '' %>"><a href="<%= campaigns_path %>">Campaigns</a></li>	
+		   <li class="<%= controller.controller_path == 'creatives' ? 'active' : '' %>"><a href="<%= creatives_path %>">Creatives</a></li>	   
 		</ul>
         <ul class="nav secondary-nav">
 		   <%= render :partial => 'shared/navigation' %>
-		</ul>
+		 </ul>
       </div>
     </div>
   </div>
@@ -32,7 +33,8 @@
           <h3>Sidebar</h3>
           <ul>
            <li class="<%= controller.controller_path == 'accounts' ? 'active' : '' %>"><a href="<%= accounts_path %>">Accounts</a></li>
-		   <li class="<%= controller.controller_path == 'campaigns' ? 'active' : '' %>"><a href="<%= campaigns_path %>">Campaigns</a></li>			   
+		   <li class="<%= controller.controller_path == 'campaigns' ? 'active' : '' %>"><a href="<%= campaigns_path %>">Campaigns</a></li>	
+		   <li class="<%= controller.controller_path == 'creatives' ? 'active' : '' %>"><a href="<%= creatives_path %>">Creatives</a></li>		   
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 Spreader::Application.routes.draw do
+  resources :creatives
+
   resources :campaigns
 
   resources :accounts

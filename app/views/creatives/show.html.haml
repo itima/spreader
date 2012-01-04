@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b Creative:
+  = @creative.creative_id
+%p
+  %b Type:
+  = @creative.type
+%p
+  %b Title:
+  = @creative.title
+%p
+  %b Body:
+  = @creative.body
+%p
+  %b Image hash:
+  = @creative.image_hash
+%p
+  %b Link url:
+  = @creative.link_url
+%p
+  %b Object:
+  = @creative.object_id
+%p
+  %b Name:
+  = @creative.name
+%p
+  %b Run status:
+  = @creative.run_status
+%p
+  %b Preview url:
+  = @creative.preview_url
+%p
+  %b Count current adgroups:
+  = @creative.count_current_adgroups
+%p
+  %b Uid:
+  = @creative.uid
+%p
+  %b Image url:
+  = @creative.image_url
+
+= link_to 'Edit', edit_creative_path(@creative)
+\|
+= link_to 'Back', creatives_path

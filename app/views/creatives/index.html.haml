@@ -1,0 +1,43 @@
+%h1 Listing creatives
+
+%table
+  %tr
+    %th Creative
+    %th Type
+    %th Title
+    %th Body
+    %th Image hash
+    %th Link url
+    %th Object
+    %th Name
+    %th Run status
+    %th Preview url
+    %th Count current adgroups
+    %th Uid
+    %th Image url
+    %th
+    %th
+    %th
+
+  - @creatives.each do |creative|
+    %tr
+      %td= creative.creative_id
+      %td= creative.type
+      %td= creative.title
+      %td= creative.body
+      %td= creative.image_hash
+      %td= creative.link_url
+      %td= creative.object_id
+      %td= creative.name
+      %td= creative.run_status
+      %td= creative.preview_url
+      %td= creative.count_current_adgroups
+      %td= creative.uid
+      %td= creative.image_url
+      %td= link_to 'Show', creative
+      %td= link_to 'Edit', edit_creative_path(creative)
+      %td= link_to 'Destroy', creative, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Creative', new_creative_path
