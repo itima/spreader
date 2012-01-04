@@ -1,0 +1,51 @@
+%p#notice= notice
+
+%p
+  %b Advert:
+  = @adgroup.advert_id
+%p
+  %b Ad:
+  = @adgroup.ad_id
+%p
+  %b Campaign:
+  = @adgroup.campaign_id
+%p
+  %b Name:
+  = @adgroup.name
+%p
+  %b Ad status:
+  = @adgroup.ad_status
+%p
+  %b Adgroup status:
+  = @adgroup.adgroup_status
+%p
+  %b Bid type:
+  = @adgroup.bid_type
+%p
+  %b Max bid:
+  = @adgroup.max_bid
+%p
+  %b Bid info:
+  = @adgroup.bid_info
+%p
+  %b Account:
+  = @adgroup.account_id
+%p
+  %b Uid:
+  = @adgroup.uid
+%p
+  %b Creative ids:
+  = @adgroup.creative_ids
+%p
+  %b Targeting:
+  = @adgroup.targeting
+%p
+  %b Start time:
+  = @adgroup.start_time
+%p
+  %b End time:
+  = @adgroup.end_time
+
+= link_to 'Edit', edit_adgroup_path(@adgroup)
+\|
+= link_to 'Back', adgroups_path

@@ -1,0 +1,29 @@
+<table class="zebra-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.adgroup._type", :default => t("activerecord.labels._type", :default => "_type")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @adgroups.each do |adgroup| -%>
+   <tr>
+    <td><%= adgroup.id %></td>
+        <td><%= link_to adgroup._type, adgroup_path(adgroup) %>
+    </td>
+        <td><%= adgroup.created_at %></td>
+    <td>
+      <%= link_to "Show", adgroup_path(adgroup) %>
+      <%= link_to "Edit", edit_adgroup_path(adgroup) %>
+      <%= link_to "Destroy", adgroup_path(adgroup), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_adgroup_path, :class => 'btn primary' %>

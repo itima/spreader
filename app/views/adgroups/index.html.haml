@@ -1,0 +1,47 @@
+%h1 Listing adgroups
+
+%table
+  %tr
+    %th Advert
+    %th Ad
+    %th Campaign
+    %th Name
+    %th Ad status
+    %th Adgroup status
+    %th Bid type
+    %th Max bid
+    %th Bid info
+    %th Account
+    %th Uid
+    %th Creative ids
+    %th Targeting
+    %th Start time
+    %th End time
+    %th
+    %th
+    %th
+
+  - @adgroups.each do |adgroup|
+    %tr
+      %td= adgroup.advert_id
+      %td= adgroup.ad_id
+      %td= adgroup.campaign_id
+      %td= adgroup.name
+      %td= adgroup.ad_status
+      %td= adgroup.adgroup_status
+      %td= adgroup.bid_type
+      %td= adgroup.max_bid
+      %td= adgroup.bid_info
+      %td= adgroup.account_id
+      %td= adgroup.uid
+      %td= adgroup.creative_ids
+      %td= adgroup.targeting
+      %td= adgroup.start_time
+      %td= adgroup.end_time
+      %td= link_to 'Show', adgroup
+      %td= link_to 'Edit', edit_adgroup_path(adgroup)
+      %td= link_to 'Destroy', adgroup, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Adgroup', new_adgroup_path

@@ -1,0 +1,55 @@
+= form_for @adgroup do |f|
+  -if @adgroup.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@adgroup.errors.count, "error")} prohibited this adgroup from being saved:"
+      %ul
+        - @adgroup.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :advert_id
+    = f.number_field :advert_id
+  .field
+    = f.label :ad_id
+    = f.number_field :ad_id
+  .field
+    = f.label :campaign_id
+    = f.number_field :campaign_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :ad_status
+    = f.number_field :ad_status
+  .field
+    = f.label :adgroup_status
+    = f.number_field :adgroup_status
+  .field
+    = f.label :bid_type
+    = f.number_field :bid_type
+  .field
+    = f.label :max_bid
+    = f.number_field :max_bid
+  .field
+    = f.label :bid_info
+    = f.text_field :bid_info
+  .field
+    = f.label :account_id
+    = f.number_field :account_id
+  .field
+    = f.label :uid
+    = f.text_field :uid
+  .field
+    = f.label :creative_ids
+    = f.text_field :creative_ids
+  .field
+    = f.label :targeting
+    = f.text_field :targeting
+  .field
+    = f.label :start_time
+    = f.datetime_select :start_time
+  .field
+    = f.label :end_time
+    = f.datetime_select :end_time
+  .actions
+    = f.submit 'Save'
