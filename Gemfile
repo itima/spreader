@@ -5,6 +5,7 @@ HOST_OS = RbConfig::CONFIG['host_os']
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -52,7 +53,7 @@ group :development do
   gem "guard", ">= 0.6.2"
 end
 
-group  [:development, :test] do
+group  :development, :test do
   gem "rspec-rails", ">= 2.8.0.rc1"
 end
 
