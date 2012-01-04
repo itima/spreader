@@ -26,6 +26,7 @@ gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.3.3"
 gem "omniauth", ">= 1.0.0"
 gem "omniauth-facebook"
+gem 'koala'
 gem "twitter-bootstrap-rails"
 
 group :development do
