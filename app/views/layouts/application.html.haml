@@ -8,33 +8,13 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body{:class => params[:controller]}
+  %body{:class => params[:controller], :style => 'padding-top:60px'}
     .topbar
       .topbar-inner
         .container
           %h3= link_to "Spreader", "/"
           %ul.nav
-            %li{:class => controller.controller_path == 'accounts' ? 'active' : ''}
-              %a{:href => accounts_path} Accounts
-            %li{:class => controller.controller_path == 'campaigns' ? 'active' : ''}
-              %a{:href => campaigns_path} Campaigns
-            %li{:class => controller.controller_path == 'creatives' ? 'active' : ''}
-              %a{:href => creatives_path} Creatives
-            %li{:class => controller.controller_path == 'adgroups' ? 'active' : ''}
-              %a{:href => adgroups_path} Adgroups
-          %ul.nav.secondary-nav
-            = render :partial => 'shared/navigation'
-    .container
-      .content
-        .row
-          .span11
-		      - flash.each do |name, msg|
-		        = content_tag :div, msg, :id => "flash_\#{name}" if msg.is_a?(String)
-            = yield
-          .span1 &nbsp;
-          .span4
-            %h3 Sidebar
-            %ul
+            - if user_signed_in?
               %li{:class => controller.controller_path == 'accounts' ? 'active' : ''}
                 %a{:href => accounts_path} Accounts
               %li{:class => controller.controller_path == 'campaigns' ? 'active' : ''}
@@ -43,3 +23,25 @@
                 %a{:href => creatives_path} Creatives
               %li{:class => controller.controller_path == 'adgroups' ? 'active' : ''}
                 %a{:href => adgroups_path} Adgroups
+          %ul.nav.secondary-nav
+            = render :partial => 'shared/navigation'
+    .container
+      .content
+        .row
+          .span11
+            - flash.each do |name, msg|
+              = content_tag :div, msg, :id => "flash_\#{name}" if msg.is_a?(String)
+            = yield
+          .span1 &nbsp;
+          .span4
+            - if user_signed_in?          
+              %h3 Sidebar
+              %ul
+                %li{:class => controller.controller_path == 'accounts' ? 'active' : ''}
+                  %a{:href => accounts_path} Accounts
+                %li{:class => controller.controller_path == 'campaigns' ? 'active' : ''}
+                  %a{:href => campaigns_path} Campaigns
+                %li{:class => controller.controller_path == 'creatives' ? 'active' : ''}
+                  %a{:href => creatives_path} Creatives
+                %li{:class => controller.controller_path == 'adgroups' ? 'active' : ''}
+                  %a{:href => adgroups_path} Adgroups

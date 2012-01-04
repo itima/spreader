@@ -9,9 +9,9 @@ Spreader::Application.routes.draw do
 
   #get \"users\/show\"
 
-  root :to => "home#index"
-
   resources :users, :only => [ :show, :edit, :update ]
+  
+  match '/accounts/:account_id/retrieve' => 'accounts#retrieve', :as => 'accounts_retrieve'
 
   match '/auth/:provider/callback' => 'sessions#create'
 
@@ -20,6 +20,8 @@ Spreader::Application.routes.draw do
   match '/signout' => 'sessions#destroy', :as => :signout
 
   match '/auth/failure' => 'sessions#failure'
+  
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

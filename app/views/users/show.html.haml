@@ -4,7 +4,9 @@
   Email: #{@user.email if @user.email}
 
 .accounts 
-  %h2 Available Accounts
-  - @results.each do |result|
-    .account
-      %p= result['id']
+  %h2 Available Ads Accounts
+  %ul
+    - @results.each do |result|
+      %li.account
+        = result['id']
+        = link_to 'Connect', accounts_retrieve_path(result['id'])

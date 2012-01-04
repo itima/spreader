@@ -15,10 +15,9 @@ class UsersController < ApplicationController
     end
   end
 
-
   def show
     @user = User.find(params[:id])
-    @graph = Koala::Facebook::GraphAPI.new(@user.token)
+    @graph = Koala::Facebook::API.new(@user.token)
     @results = @graph.get_connections('me', 'adaccounts')
   end
 

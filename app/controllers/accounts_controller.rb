@@ -80,4 +80,9 @@ class AccountsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def retrieve
+    Rails.logger.debug { "AccountsController#retrieve - #{params['account_id']}" }
+  end
+  
 end
