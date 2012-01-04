@@ -1,5 +1,7 @@
 class Adgroup
   include Mongoid::Document
+  include Mongoid::Timestamps
+  
   field :advert_id, :type => Integer
   field :ad_id, :type => Integer
   field :campaign_id, :type => Integer
