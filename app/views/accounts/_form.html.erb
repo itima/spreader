@@ -1,0 +1,64 @@
+
+    <%= f.label :_type, t("activerecord.attributes.account._type", :default => " type"), :class => :label %>
+    <%= f.text_field :_type, :class => 'text_field' %>
+
+    <%= f.label :_id, t("activerecord.attributes.account._id", :default => ""), :class => :label %>
+    <%= f.text_field :_id, :class => 'text_field' %>
+
+    <%= f.label :uid, t("activerecord.attributes.account.uid", :default => "Uid"), :class => :label %>
+    <%= f.text_field :uid, :class => 'text_field' %>
+
+    <%= f.label :account_id, t("activerecord.attributes.account.account_id", :default => "Account"), :class => :label %>
+    <%= f.text_field :account_id, :class => 'text_field' %>
+
+    <%= f.label :name, t("activerecord.attributes.account.name", :default => "Name"), :class => :label %>
+    <%= f.text_field :name, :class => 'text_field' %>
+
+    <%= f.label :account_status, t("activerecord.attributes.account.account_status", :default => "Account status"), :class => :label %>
+    <%= f.text_field :account_status, :class => 'text_field' %>
+
+    <%= f.label :currency, t("activerecord.attributes.account.currency", :default => "Currency"), :class => :label %>
+    <%= f.text_field :currency, :class => 'text_field' %>
+
+    <%= f.label :timezone_id, t("activerecord.attributes.account.timezone_id", :default => "Timezone"), :class => :label %>
+    <%= f.text_field :timezone_id, :class => 'text_field' %>
+
+    <%= f.label :timezone_name, t("activerecord.attributes.account.timezone_name", :default => "Timezone name"), :class => :label %>
+    <%= f.text_field :timezone_name, :class => 'text_field' %>
+
+    <%= f.label :is_personal, t("activerecord.attributes.account.is_personal", :default => "Is personal"), :class => :label %>
+    <%= f.text_field :is_personal, :class => 'text_field' %>
+
+    <%= f.label :business_name, t("activerecord.attributes.account.business_name", :default => "Business name"), :class => :label %>
+    <%= f.text_field :business_name, :class => 'text_field' %>
+
+    <%= f.label :business_street, t("activerecord.attributes.account.business_street", :default => "Business street"), :class => :label %>
+    <%= f.text_field :business_street, :class => 'text_field' %>
+
+    <%= f.label :business_street2, t("activerecord.attributes.account.business_street2", :default => "Business street2"), :class => :label %>
+    <%= f.text_field :business_street2, :class => 'text_field' %>
+
+    <%= f.label :business_city, t("activerecord.attributes.account.business_city", :default => "Business city"), :class => :label %>
+    <%= f.text_field :business_city, :class => 'text_field' %>
+
+    <%= f.label :business_state, t("activerecord.attributes.account.business_state", :default => "Business state"), :class => :label %>
+    <%= f.text_field :business_state, :class => 'text_field' %>
+
+    <%= f.label :business_zip, t("activerecord.attributes.account.business_zip", :default => "Business zip"), :class => :label %>
+    <%= f.text_field :business_zip, :class => 'text_field' %>
+
+    <%= f.label :business_country_code, t("activerecord.attributes.account.business_country_code", :default => "Business country code"), :class => :label %>
+    <%= f.text_field :business_country_code, :class => 'text_field' %>
+
+    <%= f.label :vat_status, t("activerecord.attributes.account.vat_status", :default => "Vat status"), :class => :label %>
+    <%= f.text_field :vat_status, :class => 'text_field' %>
+
+    <%= f.label :daily_spend_limit, t("activerecord.attributes.account.daily_spend_limit", :default => "Daily spend limit"), :class => :label %>
+    <%= f.text_field :daily_spend_limit, :class => 'text_field' %>
+
+    <%= f.label :balance, t("activerecord.attributes.account.balance", :default => "Balance"), :class => :label %>
+    <%= f.text_field :balance, :class => 'text_field' %>
+<div class="actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", accounts_path %>
+</div>

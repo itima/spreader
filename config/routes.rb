@@ -1,4 +1,6 @@
 Spreader::Application.routes.draw do
+  resources :accounts
+
   #get \"users\/show\"
 
   root :to => "home#index"

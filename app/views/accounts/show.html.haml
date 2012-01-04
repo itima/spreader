@@ -1,0 +1,60 @@
+%p#notice= notice
+
+%p
+  %b Id:
+  = @account.id
+%p
+  %b Account:
+  = @account.account_id
+%p
+  %b Name:
+  = @account.name
+%p
+  %b Account status:
+  = @account.account_status
+%p
+  %b Currency:
+  = @account.currency
+%p
+  %b Timezone:
+  = @account.timezone_id
+%p
+  %b Timezone name:
+  = @account.timezone_name
+%p
+  %b Is personal:
+  = @account.is_personal
+%p
+  %b Business name:
+  = @account.business_name
+%p
+  %b Business street:
+  = @account.business_street
+%p
+  %b Business street2:
+  = @account.business_street2
+%p
+  %b Business city:
+  = @account.business_city
+%p
+  %b Business state:
+  = @account.business_state
+%p
+  %b Business zip:
+  = @account.business_zip
+%p
+  %b Business country code:
+  = @account.business_country_code
+%p
+  %b Vat status:
+  = @account.vat_status
+%p
+  %b Daily spend limit:
+  = @account.daily_spend_limit
+%p
+  %b Balance:
+  = @account.balance
+
+= link_to 'Edit', edit_account_path(@account)
+\|
+= link_to 'Back', accounts_path

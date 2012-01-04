@@ -1,0 +1,61 @@
+
+  <label class="label"><%= t("activerecord.attributes.account._type", :default => t("activerecord.labels._type", :default => " type")) %>:</label>
+  <p><%= @account._type %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account._id", :default => t("activerecord.labels._id", :default => "")) %>:</label>
+  <p><%= @account._id %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.uid", :default => t("activerecord.labels.uid", :default => "Uid")) %>:</label>
+  <p><%= @account.uid %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.account_id", :default => t("activerecord.labels.account_id", :default => "Account")) %>:</label>
+  <p><%= @account.account_id %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</label>
+  <p><%= @account.name %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.account_status", :default => t("activerecord.labels.account_status", :default => "Account status")) %>:</label>
+  <p><%= @account.account_status %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.currency", :default => t("activerecord.labels.currency", :default => "Currency")) %>:</label>
+  <p><%= @account.currency %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.timezone_id", :default => t("activerecord.labels.timezone_id", :default => "Timezone")) %>:</label>
+  <p><%= @account.timezone_id %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.timezone_name", :default => t("activerecord.labels.timezone_name", :default => "Timezone name")) %>:</label>
+  <p><%= @account.timezone_name %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.is_personal", :default => t("activerecord.labels.is_personal", :default => "Is personal")) %>:</label>
+  <p><%= @account.is_personal %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.business_name", :default => t("activerecord.labels.business_name", :default => "Business name")) %>:</label>
+  <p><%= @account.business_name %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.business_street", :default => t("activerecord.labels.business_street", :default => "Business street")) %>:</label>
+  <p><%= @account.business_street %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.business_street2", :default => t("activerecord.labels.business_street2", :default => "Business street2")) %>:</label>
+  <p><%= @account.business_street2 %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.business_city", :default => t("activerecord.labels.business_city", :default => "Business city")) %>:</label>
+  <p><%= @account.business_city %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.business_state", :default => t("activerecord.labels.business_state", :default => "Business state")) %>:</label>
+  <p><%= @account.business_state %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.business_zip", :default => t("activerecord.labels.business_zip", :default => "Business zip")) %>:</label>
+  <p><%= @account.business_zip %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.business_country_code", :default => t("activerecord.labels.business_country_code", :default => "Business country code")) %>:</label>
+  <p><%= @account.business_country_code %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.vat_status", :default => t("activerecord.labels.vat_status", :default => "Vat status")) %>:</label>
+  <p><%= @account.vat_status %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.daily_spend_limit", :default => t("activerecord.labels.daily_spend_limit", :default => "Daily spend limit")) %>:</label>
+  <p><%= @account.daily_spend_limit %></p>
+
+  <label class="label"><%= t("activerecord.attributes.account.balance", :default => t("activerecord.labels.balance", :default => "Balance")) %>:</label>
+  <p><%= @account.balance %></p>
+<%= link_to "Back", accounts_path  %>

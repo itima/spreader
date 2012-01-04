@@ -1,0 +1,53 @@
+%h1 Listing accounts
+
+%table
+  %tr
+    %th Id
+    %th Account
+    %th Name
+    %th Account status
+    %th Currency
+    %th Timezone
+    %th Timezone name
+    %th Is personal
+    %th Business name
+    %th Business street
+    %th Business street2
+    %th Business city
+    %th Business state
+    %th Business zip
+    %th Business country code
+    %th Vat status
+    %th Daily spend limit
+    %th Balance
+    %th
+    %th
+    %th
+
+  - @accounts.each do |account|
+    %tr
+      %td= account.id
+      %td= account.account_id
+      %td= account.name
+      %td= account.account_status
+      %td= account.currency
+      %td= account.timezone_id
+      %td= account.timezone_name
+      %td= account.is_personal
+      %td= account.business_name
+      %td= account.business_street
+      %td= account.business_street2
+      %td= account.business_city
+      %td= account.business_state
+      %td= account.business_zip
+      %td= account.business_country_code
+      %td= account.vat_status
+      %td= account.daily_spend_limit
+      %td= account.balance
+      %td= link_to 'Show', account
+      %td= link_to 'Edit', edit_account_path(account)
+      %td= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Account', new_account_path
