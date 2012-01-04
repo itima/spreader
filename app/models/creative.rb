@@ -13,4 +13,6 @@ class Creative
   field :count_current_adgroups, :type => Integer
   field :uid, :type => String
   field :image_url, :type => String
+  
+  belongs_to :adgroup
 end

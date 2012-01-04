@@ -11,4 +11,7 @@ class Campaign
   field :uid, :type => Integer
   field :start_time, :type => Time
   field :end_time, :type => Time
+  
+  belongs_to :account
+  has_many :adgroups
 end

@@ -17,4 +17,8 @@ class Adgroup
   field :targeting, :type => Hash
   field :start_time, :type => Time
   field :end_time, :type => Time
+  
+  belongs_to :campaign
+  has_one :creative
+  
 end

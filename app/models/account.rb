@@ -20,4 +20,7 @@ class Account
   field :daily_spend_limit, :type => Integer
   field :balance, :type => Integer
   
+  belongs_to :user
+  has_many :campaigns
+  
 end

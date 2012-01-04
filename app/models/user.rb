@@ -5,6 +5,9 @@ class User
   field :name, :type => String
   field :email, :type => String
   field :token, :type => String
+  
+  has_many :accounts
+  
   attr_accessible :provider, :uid, :name, :email, :token
 
   def self.create_with_omniauth(auth)
