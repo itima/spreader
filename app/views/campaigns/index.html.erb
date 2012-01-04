@@ -1,0 +1,29 @@
+<table class="zebra-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.campaign._type", :default => t("activerecord.labels._type", :default => "_type")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @campaigns.each do |campaign| -%>
+   <tr>
+    <td><%= campaign.id %></td>
+        <td><%= link_to campaign._type, campaign_path(campaign) %>
+    </td>
+        <td><%= campaign.created_at %></td>
+    <td>
+      <%= link_to "Show", campaign_path(campaign) %>
+      <%= link_to "Edit", edit_campaign_path(campaign) %>
+      <%= link_to "Destroy", campaign_path(campaign), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_campaign_path, :class => 'btn primary' %>

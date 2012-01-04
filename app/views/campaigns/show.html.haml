@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Account:
+  = @campaign.account_id
+%p
+  %b Campaign:
+  = @campaign.campaign_id
+%p
+  %b Name:
+  = @campaign.name
+%p
+  %b Daily budget:
+  = @campaign.daily_budget
+%p
+  %b Campaign status:
+  = @campaign.campaign_status
+%p
+  %b Daily imps:
+  = @campaign.daily_imps
+%p
+  %b Uid:
+  = @campaign.uid
+%p
+  %b Start time:
+  = @campaign.start_time
+%p
+  %b End time:
+  = @campaign.end_time
+
+= link_to 'Edit', edit_campaign_path(@campaign)
+\|
+= link_to 'Back', campaigns_path

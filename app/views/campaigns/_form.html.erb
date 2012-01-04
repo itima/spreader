@@ -1,0 +1,37 @@
+
+    <%= f.label :_type, t("activerecord.attributes.campaign._type", :default => " type"), :class => :label %>
+    <%= f.text_field :_type, :class => 'text_field' %>
+
+    <%= f.label :_id, t("activerecord.attributes.campaign._id", :default => ""), :class => :label %>
+    <%= f.text_field :_id, :class => 'text_field' %>
+
+    <%= f.label :account_id, t("activerecord.attributes.campaign.account_id", :default => "Account"), :class => :label %>
+    <%= f.text_field :account_id, :class => 'text_field' %>
+
+    <%= f.label :campaign_id, t("activerecord.attributes.campaign.campaign_id", :default => "Campaign"), :class => :label %>
+    <%= f.text_field :campaign_id, :class => 'text_field' %>
+
+    <%= f.label :name, t("activerecord.attributes.campaign.name", :default => "Name"), :class => :label %>
+    <%= f.text_field :name, :class => 'text_field' %>
+
+    <%= f.label :daily_budget, t("activerecord.attributes.campaign.daily_budget", :default => "Daily budget"), :class => :label %>
+    <%= f.text_field :daily_budget, :class => 'text_field' %>
+
+    <%= f.label :campaign_status, t("activerecord.attributes.campaign.campaign_status", :default => "Campaign status"), :class => :label %>
+    <%= f.text_field :campaign_status, :class => 'text_field' %>
+
+    <%= f.label :daily_imps, t("activerecord.attributes.campaign.daily_imps", :default => "Daily imps"), :class => :label %>
+    <%= f.text_field :daily_imps, :class => 'text_field' %>
+
+    <%= f.label :uid, t("activerecord.attributes.campaign.uid", :default => "Uid"), :class => :label %>
+    <%= f.text_field :uid, :class => 'text_field' %>
+
+    <%= f.label :start_time, t("activerecord.attributes.campaign.start_time", :default => "Start time"), :class => :label %>
+    <%= f.text_field :start_time, :class => 'text_field' %>
+
+    <%= f.label :end_time, t("activerecord.attributes.campaign.end_time", :default => "End time"), :class => :label %>
+    <%= f.text_field :end_time, :class => 'text_field' %>
+<div class="actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", campaigns_path %>
+</div>

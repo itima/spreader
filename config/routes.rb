@@ -1,4 +1,6 @@
 Spreader::Application.routes.draw do
+  resources :campaigns
+
   resources :accounts
 
   #get \"users\/show\"
