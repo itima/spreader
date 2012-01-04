@@ -2,19 +2,15 @@
   %thead
     %tr
       %th ID
-      %th
-        = t("activerecord.attributes.creative._type", :default => t("activerecord.labels._type", :default => "_type"))
-      %th Created at
-      %th Actions
+      %th Name
+      -# %th Actions
   %tbody
     - @creatives.each do |creative|
       %tr
-        %td= creative.id
+        %td= creative.uid
         %td
-          = link_to creative._type, creative_path(creative)
-        %td= creative.created_at
-        %td
+          = link_to creative.name, creative_path(creative)
+        -# %td
           = link_to "Show", creative_path(creative)
           = link_to "Edit", edit_creative_path(creative)
           = link_to "Destroy", creative_path(creative), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
-= link_to "New", new_creative_path, :class => 'btn primary'

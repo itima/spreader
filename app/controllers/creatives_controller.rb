@@ -1,8 +1,10 @@
 class CreativesController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /creatives
   # GET /creatives.json
   def index
-    @creatives = Creative.all
+    @creatives = current_user.creatives
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +16,7 @@ class CreativesController < ApplicationController
   # GET /creatives/1.json
   def show
     @creative = Creative.find(params[:id])
+    correct_user?
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,6 +44,7 @@ class CreativesController < ApplicationController
   # POST /creatives.json
   def create
     @creative = Creative.new(params[:creative])
+    correct_user?
 
     respond_to do |format|
       if @creative.save
@@ -57,6 +61,7 @@ class CreativesController < ApplicationController
   # PUT /creatives/1.json
   def update
     @creative = Creative.find(params[:id])
+    correct_user?
 
     respond_to do |format|
       if @creative.update_attributes(params[:creative])
@@ -73,6 +78,7 @@ class CreativesController < ApplicationController
   # DELETE /creatives/1.json
   def destroy
     @creative = Creative.find(params[:id])
+    correct_user?
     @creative.destroy
 
     respond_to do |format|
@@ -80,4 +86,11 @@ class CreativesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def correct_user?
+    unless current_user == @creative.user
+      redirect_to root_url, :alert => "Access denied."
+    end
+  end
+  
 end

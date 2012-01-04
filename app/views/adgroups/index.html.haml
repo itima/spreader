@@ -2,19 +2,14 @@
   %thead
     %tr
       %th ID
-      %th
-        = t("activerecord.attributes.adgroup._type", :default => t("activerecord.labels._type", :default => "_type"))
-      %th Created at
-      %th Actions
+      %th Name
+      -# %th Actions
   %tbody
     - @adgroups.each do |adgroup|
       %tr
-        %td= adgroup.id
+        %td= adgroup.uid
         %td
-          = link_to adgroup._type, adgroup_path(adgroup)
-        %td= adgroup.created_at
-        %td
-          = link_to "Show", adgroup_path(adgroup)
+          = link_to adgroup.name, adgroup_path(adgroup)
+        -# %td
           = link_to "Edit", edit_adgroup_path(adgroup)
           = link_to "Destroy", adgroup_path(adgroup), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
-= link_to "New", new_adgroup_path, :class => 'btn primary'

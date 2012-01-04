@@ -1,8 +1,4 @@
 %label.label
-  = t("activerecord.attributes.creative._type", :default => t("activerecord.labels._type", :default => " type"))
-  \:
-%p= @creative._type
-%label.label
   = t("activerecord.attributes.creative._id", :default => t("activerecord.labels._id", :default => ""))
   \:
 %p= @creative._id
@@ -57,5 +53,5 @@
 %label.label
   = t("activerecord.attributes.creative.image_url", :default => t("activerecord.labels.image_url", :default => "Image url"))
   \:
-%p= @creative.image_url
+%p= image_tag @creative.image_url
 = link_to "Back", creatives_path

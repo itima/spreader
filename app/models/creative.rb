@@ -13,6 +13,22 @@ class Creative
   field :count_current_adgroups, :type => Integer
   field :uid, :type => String
   field :image_url, :type => String
+
+  field :retrieval_status, :type => String
+  field :retrieval_date, :type => Time
   
-  belongs_to :adgroup
+  has_many :adgroups
+  belongs_to :user  
+  belongs_to :account
+  
+  def self.build_from (adcreative, account)
+    adcreative['uid'] = adcreative['id']
+    adcreative.delete('id')
+    
+    creative = Creative.new(adcreative)
+    creative.account = account
+    
+    creative
+  end
+  
 end

@@ -1,8 +1,10 @@
 class AccountsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = current_user.accounts
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +16,8 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     @account = Account.find(params[:id])
-
+    correct_user?
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @account }
@@ -35,13 +38,16 @@ class AccountsController < ApplicationController
   # GET /accounts/1/edit
   def edit
     @account = Account.find(params[:id])
+    correct_user?
+    
   end
 
   # POST /accounts
   # POST /accounts.json
   def create
     @account = Account.new(params[:account])
-
+    @account.user = current_user
+    
     respond_to do |format|
       if @account.save
         format.html { redirect_to @account, notice: 'Account was successfully created.' }
@@ -73,6 +79,8 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1.json
   def destroy
     @account = Account.find(params[:id])
+    correct_user?
+    
     @account.destroy
 
     respond_to do |format|
@@ -83,6 +91,18 @@ class AccountsController < ApplicationController
   
   def retrieve
     Rails.logger.debug { "AccountsController#retrieve - #{params['account_id']}" }
+    if account = Account.retrieve(params['account_id'], current_user)
+      redirect_to account
+    else
+      flash[:error] = "Couldn't retrieve data from #{params['account_id']}"
+      redirect_to current_user
+    end
+  end
+
+  def correct_user?
+    unless current_user == @account.user
+      redirect_to root_url, :alert => "Access denied."
+    end
   end
   
 end

@@ -2,7 +2,7 @@ class Adgroup
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  field :advert_id, :type => Integer
+  field :adgroup_id, :type => Integer
   field :ad_id, :type => Integer
   field :campaign_id, :type => Integer
   field :name, :type => String
@@ -17,8 +17,28 @@ class Adgroup
   field :targeting, :type => Hash
   field :start_time, :type => Time
   field :end_time, :type => Time
+
+  field :retrieval_status, :type => String
+  field :retrieval_date, :type => Time
   
   belongs_to :campaign
-  has_one :creative
+  belongs_to :creative
+  belongs_to :user
+  
+  
+  def self.build_from (adgroup, user)
+    adgroup['uid'] = adgroup['id']
+    adgroup.delete('id')
+    
+    campaign = Campaign.where(campaign_id: adgroup['campaign_id'])
+    creative = Creative.where(creative_id: adgroup['creative_ids'].first)
+    
+    adgroup = Adgroup.new(adgroup)
+    adgroup.campaign = ''#campaign
+    adgroup.creative = ''#creative
+    adgroup.user = user
+    
+    adgroup
+  end
   
 end

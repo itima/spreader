@@ -2,19 +2,15 @@
   %thead
     %tr
       %th ID
-      %th
-        = t("activerecord.attributes.campaign._type", :default => t("activerecord.labels._type", :default => "_type"))
-      %th Created at
-      %th Actions
+      %th Name
+      -# %th Actions
   %tbody
     - @campaigns.each do |campaign|
       %tr
-        %td= campaign.id
+        %td= campaign.uid
         %td
-          = link_to campaign._type, campaign_path(campaign)
-        %td= campaign.created_at
-        %td
+          = link_to campaign.name, campaign_path(campaign)
+        -# %td
           = link_to "Show", campaign_path(campaign)
           = link_to "Edit", edit_campaign_path(campaign)
           = link_to "Destroy", campaign_path(campaign), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
-= link_to "New", new_campaign_path, :class => 'btn primary'

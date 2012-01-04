@@ -7,6 +7,9 @@ class User
   field :token, :type => String
   
   has_many :accounts
+  has_many :campaigns
+  has_many :adgroups
+  has_many :creatives
   
   attr_accessible :provider, :uid, :name, :email, :token
 

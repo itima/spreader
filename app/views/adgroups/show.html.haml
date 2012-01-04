@@ -1,15 +1,11 @@
 %label.label
-  = t("activerecord.attributes.adgroup._type", :default => t("activerecord.labels._type", :default => " type"))
-  \:
-%p= @adgroup._type
-%label.label
   = t("activerecord.attributes.adgroup._id", :default => t("activerecord.labels._id", :default => ""))
   \:
 %p= @adgroup._id
 %label.label
-  = t("activerecord.attributes.adgroup.advert_id", :default => t("activerecord.labels.advert_id", :default => "Advert"))
+  = t("activerecord.attributes.adgroup.adgroup_id", :default => t("activerecord.labels.adgroup_id", :default => "Adgroup id"))
   \:
-%p= @adgroup.advert_id
+%p= @adgroup.adgroup_id
 %label.label
   = t("activerecord.attributes.adgroup.ad_id", :default => t("activerecord.labels.ad_id", :default => "Ad"))
   \:

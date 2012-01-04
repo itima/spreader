@@ -1,8 +1,10 @@
 class CampaignsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.all
+    @campaigns = current_user.campaigns
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +16,7 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1.json
   def show
     @campaign = Campaign.find(params[:id])
+    correct_user?
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,12 +38,14 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1/edit
   def edit
     @campaign = Campaign.find(params[:id])
+    correct_user?
   end
 
   # POST /campaigns
   # POST /campaigns.json
   def create
     @campaign = Campaign.new(params[:campaign])
+    correct_user?
 
     respond_to do |format|
       if @campaign.save
@@ -57,6 +62,7 @@ class CampaignsController < ApplicationController
   # PUT /campaigns/1.json
   def update
     @campaign = Campaign.find(params[:id])
+    correct_user?
 
     respond_to do |format|
       if @campaign.update_attributes(params[:campaign])
@@ -73,6 +79,7 @@ class CampaignsController < ApplicationController
   # DELETE /campaigns/1.json
   def destroy
     @campaign = Campaign.find(params[:id])
+    correct_user?
     @campaign.destroy
 
     respond_to do |format|
@@ -80,4 +87,11 @@ class CampaignsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def correct_user?
+    unless current_user == @campaign.user
+      redirect_to root_url, :alert => "Access denied."
+    end
+  end
+  
 end

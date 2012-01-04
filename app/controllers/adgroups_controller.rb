@@ -1,8 +1,10 @@
 class AdgroupsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /adgroups
   # GET /adgroups.json
   def index
-    @adgroups = Adgroup.all
+    @adgroups = current_user.adgroups
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +16,7 @@ class AdgroupsController < ApplicationController
   # GET /adgroups/1.json
   def show
     @adgroup = Adgroup.find(params[:id])
+    correct_user?
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,12 +38,14 @@ class AdgroupsController < ApplicationController
   # GET /adgroups/1/edit
   def edit
     @adgroup = Adgroup.find(params[:id])
+    correct_user?
   end
 
   # POST /adgroups
   # POST /adgroups.json
   def create
     @adgroup = Adgroup.new(params[:adgroup])
+    correct_user?
 
     respond_to do |format|
       if @adgroup.save
@@ -57,6 +62,7 @@ class AdgroupsController < ApplicationController
   # PUT /adgroups/1.json
   def update
     @adgroup = Adgroup.find(params[:id])
+    correct_user?
 
     respond_to do |format|
       if @adgroup.update_attributes(params[:adgroup])
@@ -73,6 +79,7 @@ class AdgroupsController < ApplicationController
   # DELETE /adgroups/1.json
   def destroy
     @adgroup = Adgroup.find(params[:id])
+    correct_user?
     @adgroup.destroy
 
     respond_to do |format|
@@ -80,4 +87,11 @@ class AdgroupsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def correct_user?
+    unless current_user == @adgroup.user
+      redirect_to root_url, :alert => "Access denied."
+    end
+  end
+  
 end
