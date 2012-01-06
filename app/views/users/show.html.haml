@@ -1,5 +1,7 @@
 %p
   User: #{@user.name}
+  = link_to '[Edit]', edit_user_path(@user)
+  
 %p
   Email: #{@user.email if @user.email}
 
@@ -9,4 +11,4 @@
     - @results.each do |result|
       %li.account
         = result['id']
-        = link_to 'Connect', accounts_retrieve_path(result['id'])
+        = connect_or_view_account(result['id'])
