@@ -32,6 +32,10 @@ gem "twitter-bootstrap-rails"
 gem 'hpricot'
 gem 'ruby_parser'
 
+gem 'daemons'
+gem 'delayed_job'
+gem 'delayed_job_mongoid'
+
 group :development do
   gem "haml-rails", ">= 0.3.4"
   

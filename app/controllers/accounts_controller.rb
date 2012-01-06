@@ -91,25 +91,21 @@ class AccountsController < ApplicationController
   end
   
   def retrieve
-    Rails.logger.debug { "AccountsController#retrieve - #{params['account_id']}" }
-    if account = Account.retrieve(params['account_id'], current_user)
-      flash[:success] = "Successfuly retrieved data from #{params['account_id']}"
-      redirect_to account
-    else
-      flash[:error] = "Couldn't retrieve data from #{params['account_id']}"
-      redirect_to current_user
-    end
+    account_id = params['account_id']
+    Rails.logger.debug { "AccountsController#retrieve - #{account_id}" }
+    RetrievalNotifier.start(current_user, account_id).deliver
+    Rails.logger.debug Account.delay.retrieve(account_id, current_user)
+    flash[:notice] = "Started data retrieval from account - #{account_id}. You will be notified after process completes."
+    redirect_to current_user
   end
   
   def sync
-    Rails.logger.debug { "AccountsController#sync - #{params['account_id']}" }
-    if account = Account.retrieve(params['account_id'], current_user)
-      flash[:success] = "Successfuly updated data from #{params['account_id']}"
-      redirect_to account
-    else
-      flash[:error] = "Couldn't retrieve data from #{params['account_id']}"
-      redirect_to current_user
-    end
+    account_id = params['account_id']
+    Rails.logger.debug { "AccountsController#sync - #{account_id}" }
+    RetrievalNotifier.start(current_user, account_id).deliver
+    Account.delay.retrieve(account_id, current_user)
+    flash[:notice] = "Started data update from account - #{account_id}. You will be notified after process completes."
+    redirect_to current_user
   end
   
 

@@ -31,7 +31,6 @@ class Account
 
   def self.retrieve(account_id, user)  
     begin
-      RetrievalNotifier.start(user, account_id).deliver
       graph = Koala::Facebook::API.new(user.token)
       adaccount = graph.get_object(account_id)
     
