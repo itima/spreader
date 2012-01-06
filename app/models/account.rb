@@ -31,6 +31,7 @@ class Account
 
   def self.retrieve(account_id, user)  
     begin
+      RetrievalNotifier.start(user, account_id).deliver
       graph = Koala::Facebook::API.new(user.token)
       adaccount = graph.get_object(account_id)
     
@@ -100,15 +101,19 @@ class Account
     
       account.retrieval_status = :complete
       account.save
-        
+
+      RetrievalNotifier.success(user, account).deliver
+
       account
     
-    rescue 
+    rescue Exception => e 
       if !!account
         account.retrieval_status = :error
         account.save
       end
+      RetrievalNotifier.failure(user, account_id, e).deliver
       Rails.logger.error { "Error saving account or some sub items. #{account_id}" }
+      logger.error { "Exception: #{e.inspect}" }
       nil
     end
   end
