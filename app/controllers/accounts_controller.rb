@@ -24,6 +24,7 @@ class AccountsController < ApplicationController
     end
   end
 
+
   # GET /accounts/new
   # GET /accounts/new.json
   def new
