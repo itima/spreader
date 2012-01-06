@@ -30,7 +30,7 @@
         .row
           .span11
             - flash.each do |name, msg|
-              = content_tag :div, msg, :id => "flash_\#{name}" if msg.is_a?(String)
+              = content_tag :div, content_tag(:p, msg), :class => "alert-message #{name}", :id => "flash_\#{name}" if msg.is_a?(String)
             = yield
           .span1 &nbsp;
           .span4
