@@ -38,4 +38,9 @@
   = t("activerecord.attributes.campaign.end_time", :default => t("activerecord.labels.end_time", :default => "End time"))
   \:
 %p= @campaign.end_time
+%label.label
+  = t("activerecord.attributes.campaign.retrieval_status", :default => t("activerecord.labels.retrieval_status", :default => "Retrieval Status"))
+  \:
+%p #{@campaign.retrieval_status} at #{@campaign.retrieval_date}
+
 = link_to "Back", campaigns_path

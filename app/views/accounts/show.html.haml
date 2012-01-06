@@ -74,4 +74,9 @@
   = t("activerecord.attributes.account.balance", :default => t("activerecord.labels.balance", :default => "Balance"))
   \:
 %p= @account.balance
+%label.label
+  = t("activerecord.attributes.account.retrieval_status", :default => t("activerecord.labels.retrieval_status", :default => "Retrieval Status"))
+  \:
+%p #{@account.retrieval_status} at #{@account.retrieval_date}
+
 = link_to "Back", accounts_path

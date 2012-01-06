@@ -25,7 +25,7 @@
 %label.label
   = t("activerecord.attributes.creative.link_url", :default => t("activerecord.labels.link_url", :default => "Link url"))
   \:
-%p= @creative.link_url
+%p= link_to @creative.link_url, @creative.link_url
 %label.label
   = t("activerecord.attributes.creative.object_id", :default => t("activerecord.labels.object_id", :default => "Object"))
   \:
@@ -41,7 +41,7 @@
 %label.label
   = t("activerecord.attributes.creative.preview_url", :default => t("activerecord.labels.preview_url", :default => "Preview url"))
   \:
-%p= @creative.preview_url
+%p= link_to @creative.preview_url, @creative.preview_url
 %label.label
   = t("activerecord.attributes.creative.count_current_adgroups", :default => t("activerecord.labels.count_current_adgroups", :default => "Count current adgroups"))
   \:
@@ -54,4 +54,9 @@
   = t("activerecord.attributes.creative.image_url", :default => t("activerecord.labels.image_url", :default => "Image url"))
   \:
 %p= image_tag @creative.image_url
+%label.label
+  = t("activerecord.attributes.creative.retrieval_status", :default => t("activerecord.labels.retrieval_status", :default => "Retrieval Status"))
+  \:
+%p #{@creative.retrieval_status} at #{@creative.retrieval_date}
+
 = link_to "Back", creatives_path

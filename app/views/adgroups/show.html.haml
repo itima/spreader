@@ -62,4 +62,9 @@
   = t("activerecord.attributes.adgroup.end_time", :default => t("activerecord.labels.end_time", :default => "End time"))
   \:
 %p= @adgroup.end_time
+%label.label
+  = t("activerecord.attributes.adgroup.retrieval_status", :default => t("activerecord.labels.retrieval_status", :default => "Retrieval Status"))
+  \:
+%p #{@adgroup.retrieval_status} at #{@adgroup.retrieval_date}
+
 = link_to "Back", adgroups_path
