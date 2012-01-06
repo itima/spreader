@@ -24,53 +24,93 @@ class Account
   field :retrieval_status, :type => String
   field :retrieval_date, :type => Time
   
+  STATUS = [:complete, :unfinished, :error]
+  
   belongs_to :user
   has_many :campaigns
 
   def self.retrieve(account_id, user)  
-    graph = Koala::Facebook::API.new(user.token)
-    account = graph.get_object(account_id)
+    begin
+      graph = Koala::Facebook::API.new(user.token)
+      adaccount = graph.get_object(account_id)
     
-    # TODO: retrieve account
-    account['uid'] = account['id']
-    account.delete('id')
-    account.delete('users')
-    account.delete('capabilities')
-    account = Account.new account
-    account.user = user
-    account.save
-    Rails.logger.debug { "Account: #{account.inspect}" }
+      # TODO: retrieve account
+      adaccount['uid'] = adaccount['id']
+      adaccount.delete('id')
+      adaccount.delete('users')
+      adaccount.delete('capabilities')
+
+      account = Account.find_or_initialize_by adaccount
+      account.user = user
+      account.retrieval_date = DateTime.now
+      account.retrieval_status = :unfinished
+      account.save
+      Rails.logger.debug { "Account: #{account.inspect}" }
     
-    # TODO: retrieve creatives
-    adcreatives = graph.get_connections(account_id, 'adcreatives')
+      # TODO: retrieve creatives
+      adcreatives = graph.get_connections(account_id, 'adcreatives')
     
-    adcreatives.each do |adcreative|
-      creative = Creative.build_from(adcreative, account)
-      creative.user = user
-      creative.save
-      Rails.logger.debug { "Creative: #{creative.inspect}" }
-    end
+      adcreatives.each do |adcreative|
+        begin
+          creative = Creative.build_from(adcreative, account)
+          creative.user = user
+          creative.retrieval_date = DateTime.now
+          creative.retrieval_status = :complete
+          creative.save
+          Rails.logger.debug { "Creative: #{creative.inspect}" }
+        rescue
+          creative.retrieval_status = :error
+          logger.error { "Couldn't retrieve creative: #{adcreative.inspect}" }
+        end
+      end
     
-    # TODO: retrieve campaigns
-    adcampaigns = graph.get_connections(account_id, 'adcampaigns')
+      # TODO: retrieve campaigns
+      adcampaigns = graph.get_connections(account_id, 'adcampaigns')
+
+      adcampaigns.each do |adcampaign|
+        begin
+          campaign = Campaign.build_from(adcampaign, account)
+          campaign.user = user
+          campaign.retrieval_date = DateTime.now
+          campaign.retrieval_status = :complete
+          campaign.save
+          Rails.logger.debug { "Campaign: #{campaign.inspect}" }
+        rescue 
+          campaign.retrieval_status = :error
+          logger.error { "Couldn't retrieve creative: #{adcampaign.inspect}" }
+        end
+      end
+      
     
-    adcampaigns.each do |adcampaign|
-      campaign = Campaign.build_from(adcampaign, account)
-      campaign.user = user
-      campaign.save
-      Rails.logger.debug { "Campaign: #{campaign.inspect}" }
-    end
+      # TODO: retrieve adgroups
+      adgroups = graph.get_connections(account_id, 'adgroups')
     
-    # TODO: retrieve adgroups
-    adgroups = graph.get_connections(account_id, 'adgroups')
+      adgroups.each do |adgroup|
+        begin
+        add = Adgroup.build_from(adgroup, user)
+        add.retrieval_date = DateTime.now
+        add.retrieval_status = :complete
+        add.save
+        Rails.logger.debug { "Adgroup: #{add.inspect}" }
+        rescue 
+          add.retrieval_status = :error
+          logger.error { "Couldn't retrieve adgroup: #{adgroup.inspect}" }
+        end
+      end
     
-    adgroups.each do |adgroup|
-      adgroup = Adgroup.build_from(adgroup, user)
-      adgroup.save
-      Rails.logger.debug { "Adgroup: #{adgroup.inspect}" }
-    end
+      account.retrieval_status = :complete
+      account.save
         
-    account
+      account
+    
+    rescue 
+      if !!account
+        account.retrieval_status = :error
+        account.save
+      end
+      Rails.logger.error { "Error saving account or some sub items. #{account_id}" }
+      nil
+    end
   end
   
 end

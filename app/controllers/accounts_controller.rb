@@ -93,12 +93,25 @@ class AccountsController < ApplicationController
   def retrieve
     Rails.logger.debug { "AccountsController#retrieve - #{params['account_id']}" }
     if account = Account.retrieve(params['account_id'], current_user)
+      flash[:success] = "Successfuly retrieved data from #{params['account_id']}"
       redirect_to account
     else
       flash[:error] = "Couldn't retrieve data from #{params['account_id']}"
       redirect_to current_user
     end
   end
+  
+  def sync
+    Rails.logger.debug { "AccountsController#sync - #{params['account_id']}" }
+    if account = Account.retrieve(params['account_id'], current_user)
+      flash[:success] = "Successfuly updated data from #{params['account_id']}"
+      redirect_to account
+    else
+      flash[:error] = "Couldn't retrieve data from #{params['account_id']}"
+      redirect_to current_user
+    end
+  end
+  
 
   def correct_user?
     unless current_user == @account.user

@@ -22,8 +22,9 @@ class Campaign
   def self.build_from (adcampaign, account)
     adcampaign['uid'] = adcampaign['id']
     adcampaign.delete('id')
+    adcampaign.delete('account_id')  
     
-    campaign = Campaign.new(adcampaign)
+    campaign = Campaign.find_or_initialize_by(adcampaign)
     campaign.account = account
     
     campaign

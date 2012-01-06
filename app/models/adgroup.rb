@@ -33,7 +33,7 @@ class Adgroup
     campaign = Campaign.where(campaign_id: adgroup['campaign_id'])
     creative = Creative.where(creative_id: adgroup['creative_ids'].first)
     
-    adgroup = Adgroup.new(adgroup)
+    adgroup = Adgroup.find_or_initialize_by(adgroup)
     adgroup.campaign = ''#campaign
     adgroup.creative = ''#creative
     adgroup.user = user

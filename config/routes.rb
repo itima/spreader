@@ -12,6 +12,7 @@ Spreader::Application.routes.draw do
   resources :users, :only => [ :show, :edit, :update ]
   
   match '/accounts/:account_id/retrieve' => 'accounts#retrieve', :as => 'accounts_retrieve'
+  match '/accounts/:account_id/sync' => 'accounts#sync', :as => 'accounts_sync'
 
   match '/auth/:provider/callback' => 'sessions#create'
 

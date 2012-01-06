@@ -25,7 +25,7 @@ class Creative
     adcreative['uid'] = adcreative['id']
     adcreative.delete('id')
     
-    creative = Creative.new(adcreative)
+    creative = Creative.find_or_initialize_by(adcreative)
     creative.account = account
     
     creative
