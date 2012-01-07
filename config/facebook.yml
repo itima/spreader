@@ -1,6 +1,6 @@
 development:
-  app_id: 331666496857245
-  secret_key: 458b82e56419d6fa7a6dcbf463017e30
+  app_id: 260531944013768
+  secret_key: 14cb6489a3b090e8a37abcc1f4800b5d
 test:
   app_id: 331666496857245
   secret_key: 458b82e56419d6fa7a6dcbf463017e30
